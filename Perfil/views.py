@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render,redirect
+from .models import Conta
 
 def home(request):
     return render(request, 'home.html')
@@ -14,7 +15,7 @@ def cadastrar_banco(request):
     icone = request.FILES.get('icone')
     
     if len(apelido.strip()) == 0 or len(valor.strip()) == 0:
-        return redirect('/perfil/gerenciar/')
+        return redirect('/Perfil/gerenciar/')
     
     conta = Conta(
         apelido = apelido,
@@ -26,4 +27,4 @@ def cadastrar_banco(request):
 
     conta.save()
 
-    return redirect('/perfil/gerenciar/')
+    return redirect('/Perfil/gerenciar/')
