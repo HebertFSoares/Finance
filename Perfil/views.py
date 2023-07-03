@@ -29,5 +29,5 @@ def cadastrar_banco(request):
     )
 
     conta.save()
-
+    messages.add_message(request, constants.SUCCESS, 'Conta cadastrada com sucesso')
     return redirect('/Perfil/gerenciar/')
