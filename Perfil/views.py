@@ -35,3 +35,10 @@ def cadastrar_banco(request):
     conta.save()
     messages.add_message(request, constants.SUCCESS, 'Conta cadastrada com sucesso')
     return redirect('/perfil/gerenciar/')
+
+def deletar_banco(request, id):
+    conta = Conta.objects.get(id=id)
+    conta.delete()
+    
+    messages.add_message(request, constants.SUCCESS, 'Conta removida com sucesso')
+    return redirect('/perfil/gerenciar/')
