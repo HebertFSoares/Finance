@@ -98,7 +98,7 @@
                     {% for categoria in categorias %}
                         <div class="lista-contas-main">
                             <span>{{categoria}}</span>
-                            <span class="total-conta"><a href="/perfil/update_categoria/{categoria.id}"> {% if categoria.essencial %}
+                            <span class="total-conta"><a href="{% url 'update_categoria' categoria.id %}"> {% if categoria.essencial %}
                                 <img src="{% static 'perfil/img/check.png' %}">
                             {% else %}
                                 <img src="{% static 'perfil/img/exit.png' %}">
