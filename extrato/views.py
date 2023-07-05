@@ -38,3 +38,6 @@ def novo_valor(request):
         valores.save()
         messages.add_message(request, constants.SUCCESS, 'Categoria cadastrada com sucesso')
         return redirect('/extrato/novo_valor')
+    
+def view_extrato(request):
+    return render(request, 'view_extrato.html')
