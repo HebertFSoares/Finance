@@ -1,13 +1,15 @@
 from datetime import datetime
 from django.shortcuts import render,redirect
 from Perfil.models import Categoria,Conta
-from django.http import HttpResponse
+from django.http import HttpResponse,FileResponse
 from .models import Valores
 from django.contrib import messages
 from django.contrib.messages import constants
 from django.template.loader import render_to_string
 import os
 from django.conf import settings
+from weasyprint import HTML
+from io import BytesIO
 
 
 def novo_valor(request):
@@ -64,3 +66,12 @@ def exportar_pdf(request):
    valores = Valores.objects.filter(data__month=datetime.now().month)
    path_template = os.path.join(settings.BASE_DIR, 'templates/partials/extrato.html')
    template_render = render_to_string(path_template, {'valores':valores})
+   path_output = BytesIO()
+
+   HTML(string=template_render).write_pdf(path_output)
+   path_output.seek(0)
+   
+   return FileResponse(path_output, filename="extrato.pdf")
+   
+   
+   
