@@ -16,7 +16,6 @@ class Categoria(models.Model):
         return valores['valor__sum'] if valores['valor__sum'] else 0
 
     def calcula_percentual_gasto_por_categoria(self):
-        #Adicione o try para evitar o ZeroDivisionError (Erro de divisão por zero)
         try:
             return (self.total_gasto() * 100) / self.valor_planejamento
         except:
