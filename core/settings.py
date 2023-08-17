@@ -1,5 +1,6 @@
 import os
 from pathlib import Path
+import django_heroku
 from django.contrib.messages import constants
 
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -8,7 +9,7 @@ SECRET_KEY = 'django-insecure-cii*x5gr1ew27elz^jynt81gen0ng4miq&bc4^5phe@z5@zww=
 
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['https://finance-django-e1f7dba01038.herokuapp.com/']
 
 
 # Application definition
@@ -120,3 +121,5 @@ MESSAGE_TAGS = {
     constants.SUCCESS: 'alert-success',
     constants.INFO: 'alert-info ',
 }
+
+django_heroku.settings(locals())
