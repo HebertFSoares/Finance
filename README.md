@@ -2,7 +2,7 @@
 
 O projeto Finance é uma plataforma web desenvolvida em Django, projetada para ajudar os usuários a gerenciar suas finanças de maneira eficaz. Com funcionalidades de acompanhamento de depósitos, organização de despesas e uma visão abrangente das finanças pessoais, o Finance é a sua solução completa para manter suas finanças sob controle.
 
-## Funcionalidades Principais
+## Funcionalidades
 
 - **Registro de Depósitos:** Registre suas entradas de dinheiro de maneira organizada e categorizada.
 
